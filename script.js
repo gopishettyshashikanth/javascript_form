@@ -77,6 +77,9 @@ function createStateOptionTag(stateData, stateCtrl){
     optionStateTag.value = stateData.code;
     optionStateTag.textContent = stateData.name;
     
+    if(stateVal != stateData.countryCode){    
+        stateCtrl.remove(optionStateTag);    
+    }
     if(stateVal == stateData.countryCode){    
         stateCtrl.appendChild(optionStateTag);    
     }
@@ -96,7 +99,10 @@ function createCityOptionTag(cityData, cityCtrl){
     optionCityTag.value=cityData.stateCode; 
     optionCityTag.value = cityData.code;
     optionCityTag.textContent = cityData.name;
-        
+    
+    if(cityVal != cityData.stateCode){
+        cityCtrl.remove(optionCityTag);    
+    }
     if(cityVal == cityData.stateCode){
         cityCtrl.appendChild(optionCityTag);    
     }
